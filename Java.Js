@@ -1,0 +1,66 @@
+let choice = {};
+const medicare = document.getElementById("medicare");
+const socialSecurity = document.getElementById("SS");
+const federalTax = document.getElementById("federal");
+const stateTax = document.getElementById("state");
+const careerInfo = document.getElementById("career");
+
+
+
+async function getCareers() { // Fetch the careers data from the server
+    const url = "https://eecu-data-server.vercel.app/data";
+    try {
+        const response = await fetch(url);
+        const jobs = await response.json();
+        createOptions(jobs);
+        return jobs;
+    } catch (error) {
+        console.error("Error fetching careers data:", error);
+        return [];
+    }
+}
+
+function createOptions(careers) { // Get the dropdown element
+    const dropdown = document.getElementById("careers");
+
+    // Create the options
+    careers.forEach((career, index) => {
+        const option = document.createElement("option");
+        option.innerHTML = `${career.Occupation}: $${career.Salary}`;
+        option.value = index; // Store the array index as the value
+        option.classList.add("option");
+        dropdown.appendChild(option);
+    });
+
+    // Listen for the dropdown value to change
+    dropdown.addEventListener("change", (event) => {
+        const selectedIndex = event.target.value;
+        
+        // Update the choice object using the selected index
+        choice.Occupation = careers[selectedIndex].Occupation;
+        choice.Salary = careers[selectedIndex].Salary;
+        
+        saveChoice(choice);
+        displayCareerInfo(choice);
+        console.log(choice);
+    });
+}
+
+function saveChoice(choice) { // Save the choice to localStorage
+    let savedChoice = JSON.stringify(choice);
+    localStorage.setItem("choices", savedChoice);
+    console.log("Choice saved:", choice);
+}
+
+function loadChoice() { // Load the choice from localStorage
+    let savedChoices = JSON.parse(localStorage.getItem("choices")) || {};
+    choice = savedChoices;
+}
+
+function displayCareerInfo(choice) { // Display the career information on the page
+    careerInfo.innerHTML = `Occupation: ${choice.Occupation}<br>Salary: $${choice.Salary}`;
+}
+
+
+// Initialize the application
+// this isnt full y finshed it needs to be linked up correct for the fetch to actually work.
