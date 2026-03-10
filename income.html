@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,41 +10,39 @@
     <title>Wise Up!</title> <!--Make sure to add appropriate Titles for pages-->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
-        </style>
-        
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Gantari:ital,wght@0,100..900;1,100..900&display=swap');
-            </style>
+    </style>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Gantari:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="/IMages/images 1.png">
 </head>
+
 <body>
     <nav>
-        <img src="/IMages/images 1.png" alt="EECU Logo">
+        <a href="index.html" id="income-1">
+            <img src="/IMages/images 1.png" alt="EECU Logo">
+        </a>
     </nav>
     <section id="welcome-screen">
         <h1>Welcome</h1>
         <p>For starters, let's calculate your Net Monthly Income to really grasp <br> what you're working with!</p>
-        <!--Add a gross income for drop down menu-->
-        <div class= "dropdown">
-            <label for="Careers">Please enter a Job title, or occupation</label>
-            <select name="Careers" id="Careers">
-                <option value="Game Developer ">Game Developer - $105,000</option>
-                <option value="Engineering">Engineering - $96,000</option>
-                <option value="Preacher">Preacher - $130,000</option>
-                <option value="Nurse">Nurse - $130,000</option>
-                <option value="Veterinarian">Veterinarian - $130,000</option>
-                <option value="Professional Athlete">Professional Athlete - $130,000</option>
-                <input type="Other">Other</input>
+        <!--Add HTML for drop down menu-->
+        <div class="dropdown">
+            <select id="careers" name="careers">
+                <option>Please Choose a Job Title, or Occupation</option>
             </select>
             
             <!--Put the text "Please enter a job title, or occupation within the dropdown"-->
 
         </div>
-        <form id="income">
-            <input type="text" name="userIncome" id="userIncome" placeholder="Please enter your total gross annual">
-        </form>
-        <button href="expenses.html" id="nextButton">Next</button>
+        <div id="income">
+
+        </div>
+        <a href="expenses.html" id="nextButton">Next</a>
     </section>
 </body>
-</html>   
+<script src="Java.js"></script>
+
+</html>
