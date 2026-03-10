@@ -15,7 +15,11 @@
     font-style: 13px ;
   }
   :root {
-    --blue-color: #0156A6
+    --blue-color: #0156A6;
+    --green-btn: #01A640;
+    --good-outcome: #60FF7D;
+    --grey: #606060;
+    --main-content-border:#E0E0E0;
 }
 
 body {
@@ -166,6 +170,7 @@ footer {
     background-color: transparent;
     margin-left: -14vh;
 }
+
 .careers {
     display: flex;
     flex-direction: column;
